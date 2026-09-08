@@ -1,0 +1,1 @@
+<script setup lang="ts">import HCTheme from './HCTheme.vue'</script><template><HCTheme pole="academy" mode="workshop"><slot /></HCTheme></template>
