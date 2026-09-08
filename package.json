@@ -1,0 +1,17 @@
+{
+  "name": "hashcode-presentation-system",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "slidev slides/session-01-ai-productivity-agents/slides.md",
+    "build": "slidev build slides/session-01-ai-productivity-agents/slides.md",
+    "export": "slidev export slides/session-01-ai-productivity-agents/slides.md"
+  },
+  "devDependencies": {
+    "@slidev/cli": "latest",
+    "@slidev/theme-default": "latest",
+    "vite": "latest",
+    "vue": "latest"
+  }
+}
