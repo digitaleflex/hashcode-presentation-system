@@ -1,19 +1,26 @@
 {
   "name": "hashcode-presentation-system",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": true,
   "type": "module",
+  "engines": {
+    "node": ">=22 <23",
+    "npm": ">=10"
+  },
   "scripts": {
     "generate": "python scripts/generate_slidev_session_01.py",
+    "validate:json": "python -m json.tool presentations/session-01/presentation.json",
+    "validate:generated": "npm run generate && python -c \"from pathlib import Path; p=Path('slides/generated/session-01.md'); assert p.exists() and p.stat().st_size > 0; assert 'undefined' not in p.read_text(encoding='utf-8')\"",
     "dev": "npm run generate && slidev slides/generated/session-01.md",
-    "build": "npm run generate && slidev build slides/generated/session-01.md",
+    "dev:showcase": "slidev slides/design-system/showcase.md",
+    "build": "npm run validate:generated && slidev build slides/generated/session-01.md",
+    "build:showcase": "slidev build slides/design-system/showcase.md",
     "export": "npm run generate && slidev export slides/generated/session-01.md",
-    "export:all": "python scripts/build_session_01.py"
+    "export:all": "python scripts/build_session_01.py",
+    "check": "npm run validate:json && npm run validate:generated && npm run build && npm run build:showcase"
   },
   "devDependencies": {
-    "@slidev/cli": "latest",
-    "@slidev/theme-default": "latest",
-    "vite": "latest",
-    "vue": "latest"
+    "@slidev/cli": "52.6.0",
+    "@slidev/theme-default": "0.25.0"
   }
 }
