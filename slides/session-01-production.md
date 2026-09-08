@@ -406,7 +406,7 @@ layout: hash-comparison
 
 <div class="comparison-card">
   <div class="card-type">ASSISTANT IA</div>
-  <div class="card-symbol">💬</div>
+  <div class="card-symbol">AI</div>
   <h2>Vous pilotez.</h2>
   <p>L'utilisateur formule une demande, l'IA répond, puis attend la prochaine instruction.</p>
 
@@ -428,7 +428,7 @@ layout: hash-comparison
 
 <div class="comparison-card agent">
   <div class="card-type">AI AGENT</div>
-  <div class="card-symbol">◈</div>
+  <div class="card-symbol">AG</div>
   <h2>Vous déléguez un objectif.</h2>
   <p>L'agent peut raisonner, utiliser des outils, exécuter des étapes et adapter son action.</p>
 
