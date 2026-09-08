@@ -22,10 +22,10 @@ layout: hash-cover
 
 <div class="eyebrow">HASHCODE WORKSHOP #01</div>
 
-# IA, Productivité<br><span>& AI Agents</span>
+# IA, Productivité<br><span>et AI Agents</span>
 
 <p class="cover-lead">
-Transformer l'intelligence artificielle en un véritable levier de travail.
+Comprendre comment l'intelligence artificielle peut améliorer les processus de travail et soutenir la prise d'action.
 </p>
 
 <div class="cover-meta">
@@ -89,7 +89,7 @@ layout: hash-section
 
 <div class="hook-divider"></div>
 
-<p class="hook-ending">…ou simplement <strong>plus occupés ?</strong></p>
+<p class="hook-ending">…ou principalement <strong>davantage sollicités ?</strong></p>
 
 <div class="noise">
   <span>NOTIFICATIONS</span>
@@ -129,25 +129,25 @@ layout: hash-content
 
 <div class="problem-kicker">02 / LE PROBLÈME</div>
 
-# La friction est devenue<br>une partie du travail.
+# Une part importante du travail<br>est désormais consacrée à la friction.
 
 <div class="problem-grid">
 
 <div class="problem-card">
   <div class="problem-number">01</div>
-  <h3>Trop chercher</h3>
+  <h3>Recherche dispersée</h3>
   <p>L'information existe, mais elle est dispersée entre plusieurs outils et conversations.</p>
 </div>
 
 <div class="problem-card">
   <div class="problem-number">02</div>
-  <h3>Trop répéter</h3>
+  <h3>Tâches répétitives</h3>
   <p>Les mêmes tâches de lecture, synthèse, rédaction et organisation reviennent constamment.</p>
 </div>
 
 <div class="problem-card accent">
   <div class="problem-number">03</div>
-  <h3>Trop basculer</h3>
+  <h3>Fragmentation de l'attention</h3>
   <p>Chaque changement de contexte consomme de l'attention et ralentit la production réelle.</p>
 </div>
 
@@ -189,9 +189,9 @@ layout: hash-content
 
 <div class="objectives-slide">
 
-<div class="slide-kicker">03 / LA DESTINATION</div>
+<div class="slide-kicker">04 / RÉSULTATS ATTENDUS</div>
 
-# À la fin de cette séance,<br><span>vous devrez pouvoir agir.</span>
+# Résultats attendus<br><span>à l'issue de la séance.</span>
 
 <div class="objective-grid">
 
@@ -223,7 +223,7 @@ layout: hash-content
 
 <div class="objective-footer">
   <div class="objective-rule"></div>
-  <p><strong>Comprendre → Voir → Pratiquer → Produire</strong></p>
+  <p><strong>Comprendre → Analyser → Expérimenter → Produire</strong></p>
 </div>
 
 </div>
@@ -256,7 +256,7 @@ layout: hash-section
 
 <div class="amplifier-slide">
 
-<div class="amplifier-label">04 / LE BON MODÈLE MENTAL</div>
+<div class="amplifier-label">05 / MODÈLE MENTAL</div>
 
 <div class="equation">
   <div class="equation-side human">
@@ -317,7 +317,7 @@ layout: hash-content
 
 <div class="framework-header">
   <div>
-    <div class="slide-kicker">05 / LE FRAMEWORK HASHCODE</div>
+    <div class="slide-kicker">06 / FRAMEWORK HASHCODE</div>
     <h1>Avant d'automatiser,<br><span>il faut comprendre le travail.</span></h1>
   </div>
   <div class="framework-tag">4 STEPS</div>
@@ -398,17 +398,17 @@ layout: hash-comparison
 
 <div class="comparison-slide">
 
-<div class="slide-kicker">06 / LA DISTINCTION ESSENTIELLE</div>
+<div class="slide-kicker">07 / DISTINCTION ESSENTIELLE</div>
 
-# Assistant IA <span>vs</span> AI Agent
+# Assistant IA <span>et</span> AI Agent
 
 <div class="comparison-grid">
 
 <div class="comparison-card">
   <div class="card-type">ASSISTANT IA</div>
-  <div class="card-symbol">AI</div>
-  <h2>Vous pilotez.</h2>
-  <p>L'utilisateur formule une demande, l'IA répond, puis attend la prochaine instruction.</p>
+  <div class="card-symbol">ASSIST</div>
+  <h2>Interaction assistée</h2>
+  <p>L'utilisateur formule une demande et pilote directement chaque étape de l'interaction.</p>
 
   <div class="flow-mini">
     <span>YOU</span><i>→</i><span>AI</span><i>→</i><span>RESPONSE</span>
@@ -428,9 +428,9 @@ layout: hash-comparison
 
 <div class="comparison-card agent">
   <div class="card-type">AI AGENT</div>
-  <div class="card-symbol">AG</div>
-  <h2>Vous déléguez un objectif.</h2>
-  <p>L'agent peut raisonner, utiliser des outils, exécuter des étapes et adapter son action.</p>
+  <div class="card-symbol">AGENT</div>
+  <h2>Exécution orientée objectif</h2>
+  <p>Le système poursuit un objectif défini en planifiant des étapes et en utilisant des outils autorisés.</p>
 
   <div class="flow-mini">
     <span>GOAL</span><i>→</i><span>PLAN</span><i>→</i><span>ACT</span>
@@ -446,8 +446,8 @@ layout: hash-comparison
 </div>
 
 <div class="comparison-bottom">
-  <strong>La différence n'est pas seulement technologique.</strong>
-  <span>Elle concerne le niveau de délégation et d'autonomie.</span>
+  <strong>La distinction principale concerne le mode d'exécution.</strong>
+  <span>Elle porte sur le niveau de délégation, l'utilisation d'outils et le degré d'autonomie autorisé.</span>
 </div>
 
 </div>
@@ -481,7 +481,7 @@ layout: hash-diagram
 
 <div class="agent-anatomy">
 
-<div class="slide-kicker">07 / SOUS LE CAPOT</div>
+<div class="slide-kicker">08 / ARCHITECTURE D'UN AGENT</div>
 
 <div class="anatomy-header">
   <div>
