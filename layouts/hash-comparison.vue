@@ -1,0 +1,1 @@
+<template><div class="hash-layout hash-comparison"><div class="hash-layout-content"><slot /></div></div></template>

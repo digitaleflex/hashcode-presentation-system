@@ -1,12 +1,14 @@
 {
   "name": "hashcode-presentation-system",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "slidev slides/session-01-ai-productivity-agents/slides.md",
-    "build": "slidev build slides/session-01-ai-productivity-agents/slides.md",
-    "export": "slidev export slides/session-01-ai-productivity-agents/slides.md"
+    "generate": "python scripts/generate_slidev_session_01.py",
+    "dev": "npm run generate && slidev slides/generated/session-01.md",
+    "build": "npm run generate && slidev build slides/generated/session-01.md",
+    "export": "npm run generate && slidev export slides/generated/session-01.md",
+    "export:all": "python scripts/build_session_01.py"
   },
   "devDependencies": {
     "@slidev/cli": "latest",
