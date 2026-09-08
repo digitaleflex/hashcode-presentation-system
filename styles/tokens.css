@@ -1,0 +1,15 @@
+:root {
+  --hc-bg:#080A0C;
+  --hc-surface:#111418;
+  --hc-line:rgba(255,255,255,.12);
+  --hc-lime:#C5F441;
+  --hc-text:#F5F7FA;
+  --hc-muted:#9AA3AD;
+}
+.slidev-layout{background:var(--hc-bg);color:var(--hc-text)}
+.hc-layout{min-height:100%;padding:2.5rem 3.4rem;background:var(--hc-bg)}
+.hc-eyebrow{color:var(--hc-lime);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase}
+.hc-card{background:var(--hc-surface);border:1px solid var(--hc-line);border-radius:20px;padding:1.45rem}
+.hc-card.accent{border-color:var(--hc-lime)}
+.hc-accent{color:var(--hc-lime)}
+.hc-muted{color:var(--hc-muted)}
