@@ -1,48 +1,53 @@
 # ⚡ HashCode Presentation System
 
-Système de présentations réutilisable pour les ateliers, formations et sessions technologiques de HashCode.
+Reusable presentation infrastructure for HashCode workshops, training and technical sessions.
 
-## Stack
+## Design system
 
-- Slidev
-- Vue
-- Markdown
-- CSS
-- Mermaid
-- TypeScript (quand nécessaire)
+### Brand principles
+- Dark-first interface
+- HashCode lime: `#C5F441`
+- Strong typography and generous whitespace
+- One dominant idea per slide
+- Reusable components instead of copy/paste design
+- Motion only when it improves comprehension
 
-## Design principles
+### Core layouts
+- `hash-cover`
+- `hash-section`
+- `hash-content`
+- `hash-workshop`
 
-- Dark-first
-- HashCode lime accent: `#C5F441`
-- One strong idea per slide
-- Large typography
-- Generous whitespace
-- Motion that supports comprehension
-- Interactive workshop moments
-- Git-versioned content and reusable components
+### Core components
+- `HCBrand`
+- `HCSection`
+- `HCCard`
+- `HCMetric`
+- `HCQuote`
 
-## Repository structure
+## Repository
 
 ```text
-hashcode-presentation-system/
-├── slides/
-│   └── session-01-ai-productivity-agents/
-│       ├── slides.md
-│       └── assets/
-├── components/
-├── layouts/
-├── styles/
-├── public/
-└── README.md
+components/        Reusable Vue components
+layouts/           Slidev layouts
+styles/            Tokens and visual rules
+slides/
+  design-system/   Visual system showcase
+  session-01-ai-productivity-agents/
+public/brand/      Approved HashCode brand assets
+docs/              System documentation
 ```
 
-## Pilot
+## Brand assets
+
+The approved production logo should be stored in `public/brand/`. The current `HCBrand` component provides a vector fallback.
+
+## Pilot session
 
 **Session 01 — IA, Productivité & AI Agents**
 
-Tuesday 08 September 2026 — 21:30–23:00 (UTC+1)
+08 September 2026 · 21:30–23:00 · UTC+1
 
 ## Status
 
-MVP bootstrap in progress.
+Design system foundation is in place. Next: integrate the approved logo asset, migrate Session 01 to the new layouts, then preview and refine the visual result.
