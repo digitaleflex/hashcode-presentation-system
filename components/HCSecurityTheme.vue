@@ -1,0 +1,1 @@
+<script setup lang="ts">import HCTheme from './HCTheme.vue'</script><template><HCTheme pole="security" mode="immersive"><slot /></HCTheme></template>
