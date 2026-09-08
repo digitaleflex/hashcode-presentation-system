@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-label="HashCode Reboot">
+<defs><linearGradient id="lime" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#d7ff00"/><stop offset="1" stop-color="#8ebd00"/></linearGradient><filter id="glow"><feGaussianBlur stdDeviation="6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+<rect width="1600" height="900" fill="#050607"/>
+<g fill="url(#lime)" filter="url(#glow)"><path d="M455 145h155l-65 205-150 68z"/><path d="M805 145h155L850 485l-170 85z"/><path d="M395 365h320l-50 150H495l-70 205H285z"/><path d="M665 515l170-85-90 275H615z"/></g>
+<text x="800" y="660" text-anchor="middle" fill="#f5f7fa" font-family="Arial, Helvetica, sans-serif" font-size="145" font-weight="800" letter-spacing="4">HASHCODE</text>
+<text x="170" y="755" fill="#c5f441" font-family="Arial, Helvetica, sans-serif" font-size="70" font-weight="500" letter-spacing="38">REBOOT</text>
+<rect x="810" y="728" width="520" height="12" rx="6" fill="#c5f441"/>
+</svg>
