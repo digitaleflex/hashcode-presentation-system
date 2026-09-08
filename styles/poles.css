@@ -1,0 +1,32 @@
+:root {
+  --hc-lime: #C5F441;
+  --hc-bg: #050607;
+  --hc-surface: #0C0F12;
+  --hc-text: #F5F7FA;
+  --hc-muted: #9CA3AF;
+
+  --hc-community: #60A5FA;
+  --hc-academy: #A78BFA;
+  --hc-security: #F97316;
+  --hc-labs: #22C55E;
+}
+
+[data-pole="community"] { --hc-pole: var(--hc-community); }
+[data-pole="academy"] { --hc-pole: var(--hc-academy); }
+[data-pole="security"] { --hc-pole: var(--hc-security); }
+[data-pole="labs"] { --hc-pole: var(--hc-labs); }
+
+.hc-pole-label {
+  color: var(--hc-pole, var(--hc-lime));
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+
+.hc-pole-line {
+  width: 72px;
+  height: 3px;
+  background: var(--hc-pole, var(--hc-lime));
+  border-radius: 999px;
+}
