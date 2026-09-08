@@ -7,7 +7,7 @@ css: ../../styles/hashcode.css
 <!-- DESIGN SYSTEM DEMO: visual QA bench for production layouts. -->
 
 ---
-layout: hash-hero
+layout: default
 ---
 
 <div class="hc-eyebrow">01 / HASH-HERO</div>
@@ -19,7 +19,7 @@ layout: hash-hero
 <div class="hc-footer">USE: cover · statement · key message</div>
 
 ---
-layout: hash-comparison
+layout: default
 ---
 
 <div class="hc-eyebrow">02 / HASH-COMPARISON</div>
@@ -33,7 +33,7 @@ layout: hash-comparison
 </div>
 
 ---
-layout: hash-timeline
+layout: default
 ---
 
 <div class="hc-eyebrow">03 / HASH-TIMELINE</div>
@@ -48,7 +48,7 @@ layout: hash-timeline
 </div>
 
 ---
-layout: hash-diagram
+layout: default
 ---
 
 <div class="hc-eyebrow">04 / HASH-DIAGRAM</div>
@@ -64,7 +64,7 @@ layout: hash-diagram
 <div class="hc-result">AUGMENTED CAPABILITY</div>
 
 ---
-layout: hash-code
+layout: default
 ---
 
 <div class="hc-eyebrow">05 / HASH-CODE</div>
@@ -82,7 +82,7 @@ type Workflow = {
 <p class="hc-lead">Use for architecture, APIs, commands and implementation concepts.</p>
 
 ---
-layout: hash-stats
+layout: default
 ---
 
 <div class="hc-eyebrow">06 / HASH-STATS</div>
@@ -96,7 +96,7 @@ layout: hash-stats
 </div>
 
 ---
-layout: hash-quote
+layout: default
 ---
 
 <div class="hc-eyebrow">07 / HASH-QUOTE</div>
@@ -106,7 +106,7 @@ layout: hash-quote
 <p class="hc-lead">Use sparingly for principles, memorable conclusions and transitions.</p>
 
 ---
-layout: hash-workshop
+layout: default
 ---
 
 <div class="hc-eyebrow">08 / HASH-WORKSHOP</div>
@@ -122,7 +122,7 @@ layout: hash-workshop
 <div class="hc-footer">DELIVERABLE: a concrete output, not only discussion.</div>
 
 ---
-layout: hash-hero
+layout: default
 ---
 
 <div class="hc-eyebrow">VALIDATION / NEXT</div>

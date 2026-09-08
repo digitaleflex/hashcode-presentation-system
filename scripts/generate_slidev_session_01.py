@@ -2,11 +2,11 @@
 import html, json
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]; MODEL=ROOT/"presentations/session-01/presentation.json"; OUT=ROOT/"slides/generated/session-01.md"
-LAYOUTS={"cover":"hash-hero","statement":"hash-hero","cards":"hash-stats","split":"hash-diagram","flow":"hash-timeline","comparison":"hash-comparison"}
+LAYOUTS={"cover":"default","statement":"default","cards":"default","split":"default","flow":"default","comparison":"default"}
 def e(v): return html.escape(str(v),quote=False)
 def fm(s,l): return "\n".join(["---",f"layout: {l}",f'sourceId: "{e(s["id"])}"',"---","",f'<div class="hc-eyebrow">{e(s.get("eyebrow",""))}</div>' if s.get("eyebrow") else "",f'# {e(s.get("title",""))}',""])
 def render(s):
- t=s.get("type","statement"); p=[fm(s,LAYOUTS.get(t,"hash-hero"))]
+ t=s.get("type","statement"); p=[fm(s,LAYOUTS.get(t,"default"))]
  if t=="cards":
   p.append('<div class="hc-card-grid">'+"".join(f'<div class="hc-card"><div class="hc-card-label">{e((list(c)+["","",""])[0])}</div><h3>{e((list(c)+["","",""])[1])}</h3><p>{e((list(c)+["","",""])[2])}</p></div>' for c in s.get("cards",[]))+"</div>")
  elif t=="split":
