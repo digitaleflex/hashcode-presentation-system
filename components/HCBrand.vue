@@ -1,33 +1,44 @@
 <script setup>
 defineProps({
   compact: { type: Boolean, default: false },
-  subtitle: { type: String, default: 'REBOOT' },
+  subtitle: { type: String, default: '' },
   markOnly: { type: Boolean, default: false }
 })
 </script>
 
 <template>
-  <div class="hc-brand" :class="{ compact }">
+  <div class="hc-brand" :class="{ compact, 'mark-only': markOnly }">
     <img
-      v-if="markOnly"
-      src="/brand/hashcode-reboot-mark.svg"
-      alt="HashCode Reboot"
-      class="hc-brand-mark"
-    />
-    <img
-      v-else
-      src="/brand/hashcode-reboot-logo.svg"
+      src="/brand/hashcode-reboot-logo.webp"
       alt="HashCode Reboot"
       class="hc-brand-logo"
     />
-    <small v-if="subtitle && !markOnly" class="hc-brand-subtitle">{{ subtitle }}</small>
+    <small v-if="subtitle" class="hc-brand-subtitle">{{ subtitle }}</small>
   </div>
 </template>
 
 <style scoped>
-.hc-brand { display:flex; flex-direction:column; gap:.35rem; width:max-content; }
-.hc-brand-logo { width:190px; height:auto; display:block; }
-.hc-brand-mark { width:58px; height:auto; display:block; }
-.hc-brand.compact .hc-brand-logo { width:120px; }
-.hc-brand-subtitle { color:var(--hc-lime); font-size:.58rem; letter-spacing:.18em; }
+.hc-brand {
+  display:flex;
+  flex-direction:column;
+  gap:.35rem;
+  width:max-content;
+}
+.hc-brand-logo {
+  width:190px;
+  height:auto;
+  display:block;
+}
+.hc-brand.compact .hc-brand-logo {
+  width:120px;
+}
+.hc-brand.mark-only .hc-brand-logo {
+  width:72px;
+  object-fit:contain;
+}
+.hc-brand-subtitle {
+  color:var(--hc-lime);
+  font-size:.58rem;
+  letter-spacing:.18em;
+}
 </style>

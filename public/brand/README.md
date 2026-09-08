@@ -1,16 +1,25 @@
 # HashCode Reboot — Brand Assets
 
-This directory contains the production assets used by the **HashCode Presentation System**.
+This directory contains the production brand assets used by the **HashCode Presentation System**.
 
-## Assets
+## Production asset
 
-- `hashcode-reboot-logo.svg` — primary HashCode Reboot logo for covers and hero slides
-- `hashcode-reboot-mark.svg` — compact symbol for headers, footers and small UI signatures
+- `hashcode-reboot-logo.webp` — approved raster logo used by Slidev layouts and presentation surfaces.
+
+## Asset policy
+
+The generated SVG logo files are **not approved for production use** because their gradient rendering does not match the supplied HashCode Reboot visual.
+
+Do not reference the generated SVG files in new slides or components.
+
+Until an official vector version is supplied, the presentation system must use:
+
+```
+/brand/hashcode-reboot-logo.webp
+```
 
 ## Usage rules
 
-Use the primary logo for opening slides and major brand moments.
+Use the approved logo for covers, headers, section slides and major brand moments.
 
-Use the compact mark when space is limited.
-
-The presentation system uses the SVG assets directly so the brand remains sharp at every screen size and export resolution.
+Keep adequate clear space around the logo and do not recreate its gradient or geometry in CSS/SVG.
