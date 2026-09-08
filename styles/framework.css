@@ -1,0 +1,14 @@
+@import './tokens.css';
+@import './poles.css';
+
+html, body, #slide-container { background: var(--hc-bg); }
+
+::selection { background: var(--hc-lime); color: var(--hc-bg); }
+
+.hc-grid { display:grid; gap:1.2rem; }
+.hc-grid-2 { grid-template-columns:repeat(2,minmax(0,1fr)); }
+.hc-grid-3 { grid-template-columns:repeat(3,minmax(0,1fr)); }
+
+@media (max-width: 900px) {
+  .hc-grid-2,.hc-grid-3 { grid-template-columns:1fr; }
+}
