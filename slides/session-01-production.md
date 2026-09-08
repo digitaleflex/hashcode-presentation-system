@@ -391,6 +391,174 @@ TRANSITION: Ce framework nous permet maintenant de faire une distinction essenti
 .framework-principle span { color:var(--hc-lime); font-size:.58rem; letter-spacing:.15em; }.framework-principle strong { font-size:.85rem; color:#d9dde1; }
 </style>
 
+
+---
+layout: hash-comparison
+---
+
+<div class="comparison-slide">
+
+<div class="slide-kicker">06 / LA DISTINCTION ESSENTIELLE</div>
+
+# Assistant IA <span>vs</span> AI Agent
+
+<div class="comparison-grid">
+
+<div class="comparison-card">
+  <div class="card-type">ASSISTANT IA</div>
+  <div class="card-symbol">💬</div>
+  <h2>Vous pilotez.</h2>
+  <p>L'utilisateur formule une demande, l'IA répond, puis attend la prochaine instruction.</p>
+
+  <div class="flow-mini">
+    <span>YOU</span><i>→</i><span>AI</span><i>→</i><span>RESPONSE</span>
+  </div>
+
+  <ul>
+    <li>Interaction directe</li>
+    <li>Réponse à la demande</li>
+    <li>Action limitée sans outils</li>
+  </ul>
+</div>
+
+<div class="comparison-divider">
+  <div>→</div>
+  <small>PLUS<br>D'AUTONOMIE</small>
+</div>
+
+<div class="comparison-card agent">
+  <div class="card-type">AI AGENT</div>
+  <div class="card-symbol">◈</div>
+  <h2>Vous déléguez un objectif.</h2>
+  <p>L'agent peut raisonner, utiliser des outils, exécuter des étapes et adapter son action.</p>
+
+  <div class="flow-mini">
+    <span>GOAL</span><i>→</i><span>PLAN</span><i>→</i><span>ACT</span>
+  </div>
+
+  <ul>
+    <li>Objectif à atteindre</li>
+    <li>Processus multi-étapes</li>
+    <li>Outils et actions contrôlées</li>
+  </ul>
+</div>
+
+</div>
+
+<div class="comparison-bottom">
+  <strong>La différence n'est pas seulement technologique.</strong>
+  <span>Elle concerne le niveau de délégation et d'autonomie.</span>
+</div>
+
+</div>
+
 <!--
-NEXT: Assistant IA vs AI Agent.
+TIME: 0:27–0:37
+SAY: Un assistant répond principalement à vos demandes. Un agent reçoit un objectif et peut exécuter plusieurs étapes pour avancer vers ce résultat.
+IMPORTANT: Ne dites pas qu'un agent est forcément autonome sans limites. Son autonomie dépend des règles, outils et permissions que nous lui donnons.
+ASK: Dans votre quotidien, quelles tâches nécessitent une conversation et lesquelles pourraient être organisées comme un processus ?
+TRANSITION: Pour comprendre ce qui transforme réellement une IA en agent, ouvrons maintenant la machine.
+-->
+
+<style>
+.comparison-slide { padding:1.2rem 0; }
+.comparison-slide h1 { margin:.5rem 0 1.8rem; font-size:2.8rem; letter-spacing:-.05em; }.comparison-slide h1 span { color:var(--hc-lime); }
+.comparison-grid { display:grid; grid-template-columns:1fr 100px 1fr; align-items:stretch; }
+.comparison-card { border:1px solid rgba(255,255,255,.12); padding:1.5rem; min-height:350px; background:rgba(255,255,255,.018); }
+.comparison-card.agent { border-color:rgba(197,244,65,.38); background:rgba(197,244,65,.045); }
+.card-type { color:#8b939c; letter-spacing:.15em; font-size:.6rem; font-weight:700; }.agent .card-type { color:var(--hc-lime); }
+.card-symbol { font-size:2.2rem; margin:1.5rem 0 1rem; color:var(--hc-lime); }
+.comparison-card h2 { margin:0 0 .7rem; font-size:1.5rem; }.comparison-card p { color:#969ea7; font-size:.82rem; line-height:1.55; min-height:62px; }
+.flow-mini { margin:1.3rem 0; display:flex; gap:.45rem; align-items:center; flex-wrap:wrap; }.flow-mini span { font-size:.58rem; letter-spacing:.08em; color:#d8dde0; border:1px solid rgba(255,255,255,.15); padding:.4rem .5rem; }.flow-mini i { color:var(--hc-lime); font-style:normal; }
+.comparison-card ul { padding:0; margin:0; list-style:none; }.comparison-card li { border-top:1px solid rgba(255,255,255,.08); padding:.55rem 0; color:#a8afb6; font-size:.74rem; }
+.comparison-divider { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:1rem; color:var(--hc-lime); }.comparison-divider div { width:48px; height:48px; border:1px solid rgba(197,244,65,.45); display:grid; place-items:center; border-radius:50%; font-size:1.3rem; }.comparison-divider small { color:#69727a; font-size:.52rem; letter-spacing:.12em; text-align:center; line-height:1.6; }
+.comparison-bottom { margin-top:1.2rem; display:flex; gap:.6rem; align-items:center; font-size:.9rem; }.comparison-bottom strong { color:#f1f3f4; }.comparison-bottom span { color:#8f979f; }
+</style>
+
+---
+layout: hash-diagram
+---
+
+<div class="agent-anatomy">
+
+<div class="slide-kicker">07 / SOUS LE CAPOT</div>
+
+<div class="anatomy-header">
+  <div>
+    <h1>L'anatomie<br>d'un <span>AI Agent.</span></h1>
+    <p>Un agent n'est pas simplement un chatbot avec un nouveau nom.</p>
+  </div>
+  <div class="anatomy-note">INPUT → REASON → ACT → OBSERVE → ADAPT</div>
+</div>
+
+<div class="agent-system">
+
+<div class="agent-node goal">
+  <small>01</small>
+  <strong>OBJECTIF</strong>
+  <span>Ce que l'agent doit accomplir.</span>
+</div>
+
+<div class="agent-arrow">→</div>
+
+<div class="agent-node brain">
+  <small>02</small>
+  <strong>RAISONNEMENT</strong>
+  <span>Décider de la prochaine étape.</span>
+</div>
+
+<div class="agent-arrow">→</div>
+
+<div class="agent-node tools">
+  <small>03</small>
+  <strong>OUTILS</strong>
+  <span>APIs, fichiers, web, code, services.</span>
+</div>
+
+<div class="agent-arrow">→</div>
+
+<div class="agent-node action">
+  <small>04</small>
+  <strong>ACTION</strong>
+  <span>Exécuter une opération réelle.</span>
+</div>
+
+</div>
+
+<div class="feedback-loop">
+  <div class="loop-line"></div>
+  <div class="loop-label"><span>05</span> OBSERVER LE RÉSULTAT → AJUSTER → CONTINUER OU S'ARRÊTER</div>
+</div>
+
+<div class="agent-rule">
+  <span>RÈGLE DE SÉCURITÉ</span>
+  Plus un agent possède d'autonomie et d'accès, plus les <strong>limites, validations et permissions</strong> deviennent importantes.
+</div>
+
+</div>
+
+<!--
+TIME: 0:37–0:50
+EXPLAIN EACH BLOCK:
+1. Objectif : sans objectif clair, l'agent ne sait pas ce que signifie réussir.
+2. Raisonnement : il choisit ou propose la prochaine étape.
+3. Outils : il peut accéder à des capacités externes.
+4. Action : il produit un effet.
+5. Observation : il vérifie le résultat avant de continuer.
+EMPHASIZE: La boucle d'observation est fondamentale. Une chaîne d'actions sans contrôle peut amplifier une erreur.
+ASK: Quel serait le risque si nous donnions à un agent un outil puissant sans règles de permission ?
+TRANSITION: Nous allons maintenant quitter la théorie et regarder un workflow concret.
+-->
+
+<style>
+.agent-anatomy { padding:1.3rem 0; }
+.anatomy-header { display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:2rem; }.agent-anatomy h1 { font-size:2.8rem; line-height:1; margin:0; letter-spacing:-.05em; }.agent-anatomy h1 span { color:var(--hc-lime); }.anatomy-header p { color:#879099; margin:.8rem 0 0; font-size:.85rem; }.anatomy-note { color:#69727b; font-size:.55rem; letter-spacing:.12em; text-align:right; }
+.agent-system { display:grid; grid-template-columns:1fr 30px 1fr 30px 1fr 30px 1fr; align-items:stretch; }
+.agent-node { min-height:190px; padding:1.15rem; border:1px solid rgba(255,255,255,.12); display:flex; flex-direction:column; background:rgba(255,255,255,.015); }.agent-node.brain { border-color:rgba(197,244,65,.45); background:rgba(197,244,65,.06); }.agent-node small { color:var(--hc-lime); font-size:.6rem; margin-bottom:1.7rem; }.agent-node strong { font-size:.86rem; letter-spacing:.05em; }.agent-node span { margin-top:.8rem; color:#8d969f; font-size:.72rem; line-height:1.55; }.agent-arrow { display:flex; align-items:center; justify-content:center; color:var(--hc-lime); }
+.feedback-loop { margin:1rem 0 1.2rem; }.loop-line { width:calc(100% - 12px); margin:0 6px; border-top:1px dashed rgba(197,244,65,.45); height:18px; border-left:1px dashed rgba(197,244,65,.45); border-right:1px dashed rgba(197,244,65,.45); }.loop-label { text-align:center; color:#9fa7ae; font-size:.65rem; letter-spacing:.08em; }.loop-label span { color:var(--hc-lime); margin-right:.5rem; }
+.agent-rule { border-left:3px solid var(--hc-lime); padding:.7rem 1rem; background:rgba(197,244,65,.035); color:#aeb5bb; font-size:.76rem; line-height:1.5; }.agent-rule > span { color:var(--hc-lime); font-size:.55rem; letter-spacing:.13em; margin-right:.8rem; }.agent-rule strong { color:#eef0f1; }
+</style>
+
+<!--
+NEXT: Live workflow demonstration.
 -->
