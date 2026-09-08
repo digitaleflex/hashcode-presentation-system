@@ -1,0 +1,1 @@
+<template><div class="hash-layout hash-hero"><HCBrand compact /><div class="hash-layout-content"><slot /></div></div></template>

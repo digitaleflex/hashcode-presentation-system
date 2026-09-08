@@ -1,0 +1,1 @@
+<template><div class="hash-layout hash-code"><div class="hash-layout-content"><slot /></div></div></template>

@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-import html, json
+import html, json, shutil
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]; MODEL=ROOT/"presentations/session-01/presentation.json"; OUT=ROOT/"slides/generated/session-01.md"
-LAYOUTS={"cover":"default","statement":"default","cards":"default","split":"default","flow":"default","comparison":"default"}
+LAYOUTS={"cover":"hash-hero","statement":"hash-hero","cards":"hash-stats","split":"hash-diagram","flow":"hash-timeline","comparison":"hash-comparison"}
 def e(v): return html.escape(str(v),quote=False)
 def fm(s,l): return "\n".join(["---",f"layout: {l}",f'sourceId: "{e(s["id"])}"',"---","",f'<div class="hc-eyebrow">{e(s.get("eyebrow",""))}</div>' if s.get("eyebrow") else "",f'# {e(s.get("title",""))}',""])
 def render(s):
@@ -24,5 +24,8 @@ def main():
  text=OUT.read_text(encoding="utf-8")
  bad=[x for x in ["undefined","layout: hash-content"] if x in text]
  if bad: raise SystemExit("Forbidden generated tokens: "+", ".join(bad))
+ layouts_dst=OUT.parent/"layouts"
+ if layouts_dst.is_dir(): shutil.rmtree(layouts_dst)
+ shutil.copytree(ROOT/"layouts", layouts_dst)
  print(f"Generated {len(d.get("slides",[]))} Slidev slides: {OUT}")
 if __name__=="__main__": main()
