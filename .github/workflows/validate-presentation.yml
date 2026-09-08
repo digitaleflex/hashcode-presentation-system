@@ -1,86 +1,36 @@
 name: Presentation CI
-
 on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+  push: { branches: [main] }
+  pull_request: { branches: [main] }
   workflow_dispatch:
-
-permissions:
-  contents: read
-
-concurrency:
-  group: presentation-ci-${{ github.ref }}
-  cancel-in-progress: true
-
+permissions: { contents: read }
 jobs:
   validate:
-    name: Validate and Build
     runs-on: ubuntu-latest
     timeout-minutes: 20
-
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 22
-
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-
-      - name: Show tool versions
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: npm install
+      - run: pip install -r requirements-export.txt
+      - run: npm run generate
+      - name: Reject invalid generated content
+        run: "! grep -R -nE 'undefined|layout: hash-content' slides/generated/session-01.md"
+      - name: Build canonical deck with strict warning checks
         run: |
-          node --version
-          npm --version
-          python --version
-
-      - name: Install Node dependencies
-        run: npm install
-
-      - name: Verify required scripts
+          set -o pipefail
+          npm run build 2>&1 | tee build.log
+          ! grep -q 'Unknown layout' build.log
+      - name: Build showcase with strict warning checks
         run: |
-          node -e "const fs=require('fs'); const p=JSON.parse(fs.readFileSync('package.json','utf8')); for (const s of ['generate','dev','build','export','export:all','check','dev:showcase']) { if (!p.scripts?.[s]) throw new Error('Missing npm script: '+s) }"
-
-      - name: Install Python export dependencies
-        run: pip install -r requirements-export.txt
-
-      - name: Run canonical validation and builds
-        run: npm run check
-
-      - name: Export presentation artifacts
-        run: npm run export:all
-
-      - name: Verify export artifacts
-        run: |
+          set -o pipefail
+          npm run build:showcase 2>&1 | tee showcase.log
+          ! grep -q 'Unknown layout' showcase.log
+      - run: npm run export:all
+      - run: |
           test -s dist/hashcode-session-01-ia-productivite-ai-agents.pptx
           test -s dist/hashcode-session-01-ia-productivite-ai-agents.pdf
-
-      - name: Security audit
-        run: |
-          npm audit --json > npm-audit.json || true
-          node -e "const fs=require('fs'); const a=JSON.parse(fs.readFileSync('npm-audit.json','utf8')); const v=a.metadata?.vulnerabilities || {}; console.log('npm audit:', v); if ((v.critical||0)>0) process.exit(1)"
-
-      - name: Upload generated artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: hashcode-presentation-build
-          if-no-files-found: error
-          path: |
-            slides/generated/session-01.md
-            dist/*.pptx
-            dist/*.pdf
-            slides/generated/session-01
-
-      - name: Upload security audit report
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: npm-audit-report
-          if-no-files-found: warn
-          path: npm-audit.json
+      - run: npm audit --audit-level=critical

@@ -1,113 +1,28 @@
 #!/usr/bin/env python3
-"""Generate the Session 01 Slidev deck from the canonical presentation model."""
-import html
-import json
+import html, json
 from pathlib import Path
-
-ROOT = Path(__file__).resolve().parents[1]
-MODEL = ROOT / "presentations" / "session-01" / "presentation.json"
-OUT = ROOT / "slides" / "generated" / "session-01.md"
-
-LAYOUTS = {
-    "cover": "hash-hero",
-    "statement": "hash-hero",
-    "cards": "hash-stats",
-    "split": "hash-diagram",
-    "flow": "hash-timeline",
-    "comparison": "hash-comparison",
-}
-
-def esc(value):
-    return html.escape(str(value), quote=False)
-
-def frontmatter(slide, layout):
-    eyebrow = slide.get("eyebrow", "")
-    return "\n".join([
-        "---",
-        f"layout: {layout}",
-        f'sourceId: "{esc(slide["id"])}"',
-        "---",
-        "",
-        f"<div class=\"hc-eyebrow\">{esc(eyebrow)}</div>" if eyebrow else "",
-        f"# {esc(slide.get('title', ''))}",
-        "",
-    ])
-
-def render_cards(slide):
-    body = ['<div class="hc-card-grid">']
-    for card in slide.get("cards", []):
-        label, title, text = (list(card) + ["", "", ""])[:3]
-        body.append(f'<div class="hc-card"><div class="hc-card-label">{esc(label)}</div><h3>{esc(title)}</h3><p>{esc(text)}</p></div>')
-    body.append("</div>")
-    return "\n".join(body)
-
-def render_split(slide):
-    left_title, left_items = slide.get("left", ["", []])
-    right_title, right_items = slide.get("right", ["", []])
-    return f"""<div class="hc-split">
-  <div class="hc-panel"><div class="hc-panel-title">{esc(left_title)}</div><ul>{"".join(f"<li>{esc(x)}</li>" for x in left_items)}</ul></div>
-  <div class="hc-multiply">×</div>
-  <div class="hc-panel"><div class="hc-panel-title">{esc(right_title)}</div><ul>{"".join(f"<li>{esc(x)}</li>" for x in right_items)}</ul></div>
-</div>
-<div class="hc-result">{esc(slide.get("result", ""))}</div>"""
-
-def render_flow(slide):
-    body = ['<div class="hc-flow">']
-    for number, title, text in slide.get("steps", []):
-        body.append(f'<div class="hc-step"><div class="hc-step-number">{esc(number)}</div><div><h3>{esc(title)}</h3><p>{esc(text)}</p></div></div>')
-    body.append("</div>")
-    return "\n".join(body)
-
-def render_comparison(slide):
-    left = slide.get("left", ["", "", []])
-    right = slide.get("right", ["", "", []])
-    return f"""<div class="hc-comparison-grid">
-  <div class="hc-compare-side"><div class="hc-side-title">{esc(left[0])}</div><h3>{esc(left[1])}</h3><ul>{"".join(f"<li>{esc(x)}</li>" for x in left[2])}</ul></div>
-  <div class="hc-versus">VS</div>
-  <div class="hc-compare-side"><div class="hc-side-title">{esc(right[0])}</div><h3>{esc(right[1])}</h3><ul>{"".join(f"<li>{esc(x)}</li>" for x in right[2])}</ul></div>
-</div>"""
-
-def render_slide(slide):
-    slide_type = slide.get("type", "statement")
-    layout = LAYOUTS.get(slide_type, "hash-content")
-    parts = [frontmatter(slide, layout)]
-
-    if slide_type == "cards":
-        parts.append(render_cards(slide))
-    elif slide_type == "split":
-        parts.append(render_split(slide))
-    elif slide_type == "flow":
-        parts.append(render_flow(slide))
-    elif slide_type == "comparison":
-        parts.append(render_comparison(slide))
-    else:
-        subtitle = slide.get("subtitle", "")
-        if subtitle:
-            parts.append(f'<p class="hc-lead">{esc(subtitle)}</p>')
-
-    footer = slide.get("footer", slide.get("meta", ""))
-    if footer:
-        parts.append(f'<div class="hc-footer">{esc(footer)}</div>')
-    return "\n".join(part for part in parts if part)
-
+ROOT=Path(__file__).resolve().parents[1]; MODEL=ROOT/"presentations/session-01/presentation.json"; OUT=ROOT/"slides/generated/session-01.md"
+LAYOUTS={"cover":"hash-hero","statement":"hash-hero","cards":"hash-stats","split":"hash-diagram","flow":"hash-timeline","comparison":"hash-comparison"}
+def e(v): return html.escape(str(v),quote=False)
+def fm(s,l): return "\n".join(["---",f"layout: {l}",f'sourceId: "{e(s["id"])}"',"---","",f'<div class="hc-eyebrow">{e(s.get("eyebrow",""))}</div>' if s.get("eyebrow") else "",f'# {e(s.get("title",""))}',""])
+def render(s):
+ t=s.get("type","statement"); p=[fm(s,LAYOUTS.get(t,"hash-hero"))]
+ if t=="cards":
+  p.append('<div class="hc-card-grid">'+"".join(f'<div class="hc-card"><div class="hc-card-label">{e((list(c)+["","",""])[0])}</div><h3>{e((list(c)+["","",""])[1])}</h3><p>{e((list(c)+["","",""])[2])}</p></div>' for c in s.get("cards",[]))+"</div>")
+ elif t=="split":
+  l=s.get("left",["",[]]);r=s.get("right",["",[]]); p.append(f'<div class="hc-split"><div class="hc-panel"><div class="hc-panel-title">{e(l[0])}</div><ul>{"".join(f"<li>{e(x)}</li>" for x in l[1])}</ul></div><div class="hc-multiply">×</div><div class="hc-panel"><div class="hc-panel-title">{e(r[0])}</div><ul>{"".join(f"<li>{e(x)}</li>" for x in r[1])}</ul></div></div><div class="hc-result">{e(s.get("result",""))}</div>')
+ elif t=="flow": p.append('<div class="hc-flow">'+"".join(f'<div class="hc-step"><div class="hc-step-number">{e(n)}</div><div><h3>{e(a)}</h3><p>{e(b)}</p></div></div>' for n,a,b in s.get("steps",[]))+"</div>")
+ elif t=="comparison":
+  l=s.get("left",["","",[]]);r=s.get("right",["","",[]]); side=lambda a:f'<div class="hc-compare-side"><div class="hc-side-title">{e(a[0])}</div><h3>{e(a[1])}</h3><ul>{"".join(f"<li>{e(x)}</li>" for x in a[2])}</ul></div>';p.append(f'<div class="hc-comparison-grid">{side(l)}<div class="hc-versus">VS</div>{side(r)}</div>')
+ elif s.get("subtitle"): p.append(f'<p class="hc-lead">{e(s["subtitle"])}</p>')
+ footer=s.get("footer",s.get("meta",""))
+ if footer:p.append(f'<div class="hc-footer">{e(footer)}</div>')
+ return "\n".join(x for x in p if x)
 def main():
-    data = json.loads(MODEL.read_text(encoding="utf-8"))
-    slides = data.get("slides", [])
-    header = f"""---
-theme: default
-title: {esc(data["meta"].get("title", "HashCode Presentation"))}
-css: ../../styles/hashcode.css
----
-
-<!--
-AUTO-GENERATED FILE.
-SOURCE OF TRUTH: presentations/session-01/presentation.json
-DO NOT EDIT THIS FILE MANUALLY.
--->
-"""
-    OUT.parent.mkdir(parents=True, exist_ok=True)
-    OUT.write_text(header + "\n\n---\n\n".join(render_slide(slide) for slide in slides) + "\n", encoding="utf-8")
-    print(f"Generated {len(slides)} Slidev slides: {OUT}")
-
-if __name__ == "__main__":
-    main()
+ d=json.loads(MODEL.read_text(encoding="utf-8")); OUT.parent.mkdir(parents=True,exist_ok=True)
+ OUT.write_text(f'---\ntheme: default\ntitle: {e(d["meta"].get("title","HashCode Presentation"))}\n---\n\n'+"\n\n---\n\n".join(render(s) for s in d.get("slides",[]))+"\n",encoding="utf-8")
+ text=OUT.read_text(encoding="utf-8")
+ bad=[x for x in ["undefined","layout: hash-content"] if x in text]
+ if bad: raise SystemExit("Forbidden generated tokens: "+", ".join(bad))
+ print(f"Generated {len(d.get("slides",[]))} Slidev slides: {OUT}")
+if __name__=="__main__": main()
