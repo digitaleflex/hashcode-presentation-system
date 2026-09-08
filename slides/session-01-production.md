@@ -182,6 +182,215 @@ TRANSITION: Nous allons maintenant définir ce que nous voulons réellement obte
 .lime-dot { width:9px; height:9px; border-radius:50%; background:var(--hc-lime); box-shadow:0 0 14px rgba(197,244,65,.7); }
 </style>
 
+
+---
+layout: hash-content
+---
+
+<div class="objectives-slide">
+
+<div class="slide-kicker">03 / LA DESTINATION</div>
+
+# À la fin de cette séance,<br><span>vous devrez pouvoir agir.</span>
+
+<div class="objective-grid">
+
+<div class="objective-item">
+  <span>01</span>
+  <div>
+    <h3>Identifier</h3>
+    <p>Repérer les principales frictions dans votre propre travail.</p>
+  </div>
+</div>
+
+<div class="objective-item">
+  <span>02</span>
+  <div>
+    <h3>Comprendre</h3>
+    <p>Distinguer les usages réellement utiles de l'IA des simples effets de mode.</p>
+  </div>
+</div>
+
+<div class="objective-item">
+  <span>03</span>
+  <div>
+    <h3>Concevoir</h3>
+    <p>Imaginer un workflow augmenté et une première idée d'AI Agent.</p>
+  </div>
+</div>
+
+</div>
+
+<div class="objective-footer">
+  <div class="objective-rule"></div>
+  <p><strong>Comprendre → Voir → Pratiquer → Produire</strong></p>
+</div>
+
+</div>
+
 <!--
-NEXT: Slide 04 — Objectifs de la séance.
+TIME: 0:12–0:15
+SAY: Notre objectif n'est pas de sortir d'ici avec une liste de 50 outils. Nous voulons repartir avec une meilleure manière de regarder notre travail.
+EMPHASIZE: À la fin, chacun doit avoir identifié au moins une friction réelle et une piste concrète d'amélioration.
+TRANSITION: Pour cela, il faut d'abord comprendre correctement le rôle de l'IA.
+-->
+
+<style>
+.objectives-slide { padding:1.5rem 0; }
+.slide-kicker { color:var(--hc-lime); letter-spacing:.18em; font-size:.65rem; font-weight:700; margin-bottom:1rem; }
+.objectives-slide h1 { font-size:2.65rem; line-height:1.1; letter-spacing:-.045em; margin:0 0 2rem; }
+.objectives-slide h1 span { color:var(--hc-lime); }
+.objective-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem; }
+.objective-item { display:flex; gap:1rem; padding:1.2rem 0; border-top:1px solid rgba(255,255,255,.12); }
+.objective-item > span { color:var(--hc-lime); font-size:.7rem; font-weight:700; letter-spacing:.1em; }
+.objective-item h3 { margin:0 0 .55rem; font-size:1.15rem; }
+.objective-item p { margin:0; color:#9098a1; font-size:.82rem; line-height:1.55; }
+.objective-footer { margin-top:2rem; display:flex; align-items:center; gap:1rem; }
+.objective-rule { width:48px; height:2px; background:var(--hc-lime); }
+.objective-footer p { margin:0; color:#d9dde1; font-size:.95rem; }
+</style>
+
+---
+layout: hash-section
+---
+
+<div class="amplifier-slide">
+
+<div class="amplifier-label">04 / LE BON MODÈLE MENTAL</div>
+
+<div class="equation">
+  <div class="equation-side human">
+    <small>HUMAN</small>
+    <strong>+</strong>
+    <span>Jugement<br>Contexte<br>Responsabilité</span>
+  </div>
+
+  <div class="equation-symbol">×</div>
+
+  <div class="equation-side ai">
+    <small>AI</small>
+    <strong>+</strong>
+    <span>Vitesse<br>Analyse<br>Première version</span>
+  </div>
+
+  <div class="equation-result">
+    <small>RESULT</small>
+    <h2>Capacité<br><span>augmentée.</span></h2>
+  </div>
+</div>
+
+<p class="amplifier-warning">
+  L'IA n'est pas une magie qui remplace la pensée.
+  <strong>Elle amplifie un processus déjà compris.</strong>
+</p>
+
+</div>
+
+<!--
+TIME: 0:15–0:20
+SAY: Le mauvais réflexe est de demander : qu'est-ce que l'IA peut faire à ma place ?
+SAY: La meilleure question est : quelle capacité humaine puis-je augmenter, accélérer ou mieux structurer ?
+EXPLAIN: L'IA est forte pour analyser, résumer, structurer et générer une première version. L'humain reste responsable du jugement et de la validation.
+ASK: Quelle partie de votre travail exige absolument votre jugement humain ?
+TRANSITION: Maintenant que nous avons le bon modèle mental, voyons comment l'utiliser méthodiquement.
+-->
+
+<style>
+.amplifier-slide { min-height:100%; padding:5rem 6rem; display:flex; flex-direction:column; justify-content:center; }
+.amplifier-label { color:var(--hc-lime); font-size:.65rem; letter-spacing:.18em; font-weight:700; margin-bottom:2.2rem; }
+.equation { display:grid; grid-template-columns:1.1fr 70px 1.1fr 1.25fr; gap:1.2rem; align-items:center; }
+.equation-side { min-height:235px; border:1px solid rgba(255,255,255,.12); padding:1.7rem; display:flex; flex-direction:column; }
+.equation-side small, .equation-result small { color:#737b85; letter-spacing:.18em; font-size:.58rem; }
+.equation-side strong { color:var(--hc-lime); font-size:2.3rem; margin:1.8rem 0 .8rem; }
+.equation-side span { color:#c6ccd1; line-height:1.65; font-size:.9rem; }
+.equation-symbol { text-align:center; color:#68717a; font-size:2.2rem; }
+.equation-result { min-height:235px; padding:1.7rem; background:rgba(197,244,65,.06); border:1px solid rgba(197,244,65,.3); display:flex; flex-direction:column; justify-content:center; }
+.equation-result h2 { font-size:2.4rem; line-height:1; margin:.8rem 0 0; letter-spacing:-.04em; }.equation-result h2 span { color:var(--hc-lime); }
+.amplifier-warning { margin-top:2.2rem; max-width:800px; color:#949ba3; font-size:1rem; line-height:1.6; }.amplifier-warning strong { color:#f0f2f3; }
+</style>
+
+---
+layout: hash-content
+---
+
+<div class="framework-slide">
+
+<div class="framework-header">
+  <div>
+    <div class="slide-kicker">05 / LE FRAMEWORK HASHCODE</div>
+    <h1>Avant d'automatiser,<br><span>il faut comprendre le travail.</span></h1>
+  </div>
+  <div class="framework-tag">4 STEPS</div>
+</div>
+
+<div class="framework-flow">
+
+<div class="flow-step active">
+  <div class="step-no">01</div>
+  <h3>Identifier</h3>
+  <p>Où perdez-vous réellement du temps ou de l'énergie ?</p>
+</div>
+
+<div class="flow-arrow">→</div>
+
+<div class="flow-step">
+  <div class="step-no">02</div>
+  <h3>Simplifier</h3>
+  <p>Le processus actuel est-il vraiment nécessaire ?</p>
+</div>
+
+<div class="flow-arrow">→</div>
+
+<div class="flow-step">
+  <div class="step-no">03</div>
+  <h3>Augmenter</h3>
+  <p>Comment l'IA peut-elle améliorer la réflexion ou la production ?</p>
+</div>
+
+<div class="flow-arrow">→</div>
+
+<div class="flow-step">
+  <div class="step-no">04</div>
+  <h3>Automatiser</h3>
+  <p>Quelles étapes répétitives peuvent être déléguées dans un cadre contrôlé ?</p>
+</div>
+
+</div>
+
+<div class="framework-principle">
+  <span>PRINCIPE</span>
+  <strong>Automatiser un mauvais processus permet simplement de produire des erreurs plus vite.</strong>
+</div>
+
+</div>
+
+<!--
+TIME: 0:20–0:27
+SAY: Voici le framework central de la séance.
+STEP 1: Identifier la vraie friction.
+STEP 2: Simplifier avant d'ajouter une technologie.
+STEP 3: Augmenter avec l'IA.
+STEP 4: Automatiser uniquement les étapes suffisamment comprises et répétitives.
+ASK: Qui a déjà automatisé quelque chose avant d'avoir réellement compris le processus ?
+TRANSITION: Ce framework nous permet maintenant de faire une distinction essentielle : assistant IA et AI Agent.
+-->
+
+<style>
+.framework-slide { padding:1.5rem 0; }
+.framework-header { display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:2.1rem; }
+.framework-slide h1 { font-size:2.5rem; line-height:1.08; margin:0; letter-spacing:-.045em; }.framework-slide h1 span { color:var(--hc-lime); }
+.framework-tag { border:1px solid rgba(197,244,65,.35); color:var(--hc-lime); padding:.5rem .8rem; font-size:.6rem; letter-spacing:.15em; }
+.framework-flow { display:grid; grid-template-columns:1fr 30px 1fr 30px 1fr 30px 1fr; gap:.3rem; align-items:stretch; }
+.flow-step { min-height:215px; padding:1.25rem; border:1px solid rgba(255,255,255,.1); background:rgba(255,255,255,.018); }
+.flow-step.active { border-color:rgba(197,244,65,.4); background:rgba(197,244,65,.045); }
+.step-no { color:var(--hc-lime); font-size:.65rem; letter-spacing:.15em; margin-bottom:2rem; }
+.flow-step h3 { margin:0 0 .8rem; font-size:1.1rem; }
+.flow-step p { margin:0; color:#8d959e; font-size:.78rem; line-height:1.55; }
+.flow-arrow { display:flex; align-items:center; justify-content:center; color:var(--hc-lime); font-size:1.2rem; }
+.framework-principle { margin-top:1.5rem; display:flex; align-items:center; gap:1rem; border-left:3px solid var(--hc-lime); padding:.7rem 1rem; background:rgba(255,255,255,.02); }
+.framework-principle span { color:var(--hc-lime); font-size:.58rem; letter-spacing:.15em; }.framework-principle strong { font-size:.85rem; color:#d9dde1; }
+</style>
+
+<!--
+NEXT: Assistant IA vs AI Agent.
 -->
