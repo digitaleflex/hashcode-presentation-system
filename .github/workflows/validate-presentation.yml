@@ -1,0 +1,63 @@
+name: Validate Presentation Pipeline
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Validate canonical JSON
+        run: python -m json.tool presentations/session-01/presentation.json > /dev/null
+
+      - name: Install Slidev dependencies
+        run: npm install
+
+      - name: Generate Slidev deck
+        run: npm run generate
+
+      - name: Verify generated deck
+        run: |
+          test -s slides/generated/session-01.md
+          ! grep -q "undefined" slides/generated/session-01.md
+
+      - name: Build Slidev presentation
+        run: npm run build
+
+      - name: Install export dependencies
+        run: pip install -r requirements-export.txt
+
+      - name: Export PowerPoint and PDF
+        run: npm run export:all
+
+      - name: Verify export artifacts
+        run: |
+          test -s dist/hashcode-session-01-ia-productivite-ai-agents.pptx
+          test -s dist/hashcode-session-01-ia-productivite-ai-agents.pdf
+
+      - name: Upload validation artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: hashcode-session-01-build
+          path: |
+            slides/generated/session-01.md
+            dist/*.pptx
+            dist/*.pdf
+            slides/generated/session-01
